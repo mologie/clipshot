@@ -16,4 +16,4 @@ make package
 In order to create a debug build of ClipShot and install it on your device, run `./install-on-device.sh device-hostname`. OpenSSH is required. For your own sanity, please setup keyless authentication first.
 
 ## License
-This tweak is licensed under the GPLv3. Spark Inspector's and Reveal's framework use proprietary licenses available on their websites.
+This tweak is licensed under the GPLv3.

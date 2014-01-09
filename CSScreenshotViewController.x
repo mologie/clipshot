@@ -12,6 +12,7 @@
 #import "UIRemoteApplication+Private.h"
 
 extern UIImage *_UICreateScreenUIImageWithRotation(BOOL rotate);
+extern void PLSaveImageToCameraRollWithTypeAndExtension(UIImage *image, CFStringRef type, CFStringRef extension, id completionTarget, SEL completionSelector, void *contextInfo);
 
 #define kPhotoShutterSystemSound 0x454
 
@@ -54,7 +55,14 @@ static CSScreenshotViewController *instance;
 - (void)screenshotToCameraRoll:(UIImage *)screenshot {
 	if (!screenshot)
 		return;
-	UIImageWriteToSavedPhotosAlbum(screenshot, nil, nil, nil);
+	PLSaveImageToCameraRollWithTypeAndExtension(
+		screenshot,
+		CFSTR("public.png"),
+		CFSTR("PNG"),
+		[%c(SBScreenShotter) sharedInstance],
+		@selector(finishedWritingScreenshot:didFinishSavingWithError:context:),
+		NULL
+		);
 }
 
 - (void)screenshotToClipboard:(UIImage *)screenshot {

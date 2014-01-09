@@ -6,6 +6,7 @@
 TWEAK_NAME = ClipShot
 ClipShot_FILES = ClipShot.x CSScreenshotViewController.x
 ClipShot_FRAMEWORKS = AudioToolbox MobileCoreServices UIKit
+ClipShot_PRIVATE_FRAMEWORKS = PhotoLibrary
 
 # Use make DEBUG=1 for building binaries which output logs
 DEBUG ?= 0

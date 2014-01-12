@@ -120,12 +120,12 @@ static CSScreenShotter *instance;
 	self.screenshot = screenshot;
 	self.isWritingScreenshot = YES;
 	[self createWindow];
-    UIActionSheet *actionSheet = [[UIActionSheet alloc]
+	UIActionSheet *actionSheet = [[UIActionSheet alloc]
 		initWithTitle:@"Screenshot"
 		delegate:self
 		cancelButtonTitle:@"Cancel"
 		destructiveButtonTitle:nil
-	    otherButtonTitles:@"Save to camera roll", @"Save to clipboard", nil];
+		otherButtonTitles:@"Save to camera roll", @"Save to clipboard", nil];
 	[actionSheet showInView:self.view];
 	self.actionSheet = actionSheet;
 }

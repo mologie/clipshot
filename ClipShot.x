@@ -4,25 +4,29 @@
  * See COPYING for licensing information.
  */
 
+#import <CoreFoundation/CoreFoundation.h>
 #import <SpringBoard/SpringBoard.h>
-#import "CSScreenshotViewController.h"
+#import "CSScreenShotter.h"
+#import "PLPhotoStreamsHelper.h"
 
-%hook SBScreenShotter
-
--(void)saveScreenshot:(BOOL)screenshot {
-	[[CSScreenshotViewController sharedInstance] show];
-}
-
-%end
-
-static void CSHasBlankedScreenNotification(
+static void CSSettingsChangedNotification(
 	CFNotificationCenterRef center,
 	void *observer,
 	CFStringRef name,
 	const void *object,
 	CFDictionaryRef userInfo)
 {
-	[[CSScreenshotViewController sharedInstanceIfExists] hide];
+	[[CSScreenShotter sharedInstanceIfExists] reloadSettings];
+}
+
+static void CSSpringBoardHasBlankedScreenNotification(
+	CFNotificationCenterRef center,
+	void *observer,
+	CFStringRef name,
+	const void *object,
+	CFDictionaryRef userInfo)
+{
+	[[CSScreenShotter sharedInstanceIfExists] hide];
 }
 
 static void CSRegisterNotifications()
@@ -30,15 +34,39 @@ static void CSRegisterNotifications()
 	CFNotificationCenterAddObserver(
 		CFNotificationCenterGetDarwinNotifyCenter(),
 		NULL,
-		CSHasBlankedScreenNotification,
+		CSSettingsChangedNotification,
+		CFSTR("com.mologie.clipshot.settingschanged"),
+		NULL,
+		CFNotificationSuspensionBehaviorDeliverImmediately
+		);
+
+	CFNotificationCenterAddObserver(
+		CFNotificationCenterGetDarwinNotifyCenter(),
+		NULL,
+		CSSpringBoardHasBlankedScreenNotification,
 		CFSTR("com.apple.springboard.hasBlankedScreen"),
 		NULL,
 		CFNotificationSuspensionBehaviorDeliverImmediately
 		);
-} 
+}
+
+%hook PLPhotoStreamsHelper
+
+- (BOOL)shouldPublishScreenShots {
+	return [CSScreenShotter sharedInstance].settingsUploadScreenshotsToPhotoStream;
+}
+
+%end
+
+%hook SBScreenShotter
+
+-(void)saveScreenshot:(BOOL)screenshot {
+	[[CSScreenShotter sharedInstance] takeScreenshotAsSpecifiedByUser];
+}
+
+%end
 
 %ctor
 {
-	%init;
 	CSRegisterNotifications();
 }

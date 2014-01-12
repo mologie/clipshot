@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>entry</key>
+	<dict>
+		<key>cell</key>
+		<string>PSLinkCell</string>
+		<key>icon</key>
+		<string>/Library/PreferenceLoader/Preferences/com.mologie.clipshot/com.mologie.clipshot.png</string>
+		<key>label</key>
+		<string>ClipShot</string>
+		<key>bundle</key>
+		<string>ClipShotSettings</string>
+		<key>detail</key>
+		<string>ClipShotSettingsListController</string>
+		<key>isController</key>
+		<true/>
+	</dict>
+</dict>
+</plist>

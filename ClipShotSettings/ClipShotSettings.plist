@@ -1,0 +1,165 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>title</key>
+	<string>ClipShot</string>
+	<key>items</key>
+	<array>
+		<dict>
+			<key>cell</key>
+			<string>PSGroupCell</string>
+			<key>footerText</key>
+			<string>Select what happens when pressing the sleep and the menu button.</string>
+			<key>isStaticText</key>
+			<true/>
+		</dict>
+		<dict>
+			<key>PostNotification</key>
+			<string>com.mologie.clipshot.settingschanged</string>
+			<key>cell</key>
+			<string>PSLinkListCell</string>
+			<key>default</key>
+			<integer>0</integer>
+			<key>defaults</key>
+			<string>com.mologie.clipshot</string>
+			<key>detail</key>
+			<string>PSListItemsController</string>
+			<key>key</key>
+			<string>DefaultAction</string>
+			<key>label</key>
+			<string>Default action</string>
+			<key>validTitles</key>
+			<array>
+				<string>Ask</string>
+				<string>Save to camera roll</string>
+				<string>Save to clipboard</string>
+			</array>
+			<key>validValues</key>
+			<array>
+				<integer>0</integer>
+				<integer>1</integer>
+				<integer>2</integer>
+			</array>
+		</dict>
+		<dict>
+			<key>cell</key>
+			<string>PSGroupCell</string>
+			<key>footerText</key>
+			<string>When enabled, saving to the camera roll will save an additional copy to the clipboard.</string>
+			<key>isStaticText</key>
+			<true/>
+		</dict>
+		<dict>
+			<key>PostNotification</key>
+			<string>com.mologie.clipshot.settingschanged</string>
+			<key>cell</key>
+			<string>PSSwitchCell</string>
+			<key>default</key>
+			<false/>
+			<key>defaults</key>
+			<string>com.mologie.clipshot</string>
+			<key>key</key>
+			<string>AlwaysCopyToClipboard</string>
+			<key>label</key>
+			<string>Always copy to clipboard</string>
+		</dict>
+		<dict>
+			<key>cell</key>
+			<string>PSGroupCell</string>
+			<key>isStaticText</key>
+			<true/>
+		</dict>
+		<dict>
+			<key>PostNotification</key>
+			<string>com.mologie.clipshot.settingschanged</string>
+			<key>cell</key>
+			<string>PSSwitchCell</string>
+			<key>default</key>
+			<true/>
+			<key>defaults</key>
+			<string>com.mologie.clipshot</string>
+			<key>key</key>
+			<string>ShowFlash</string>
+			<key>label</key>
+			<string>Show camera flash</string>
+		</dict>
+		<dict>
+			<key>PostNotification</key>
+			<string>com.mologie.clipshot.settingschanged</string>
+			<key>cell</key>
+			<string>PSSwitchCell</string>
+			<key>default</key>
+			<true/>
+			<key>defaults</key>
+			<string>com.mologie.clipshot</string>
+			<key>key</key>
+			<string>PlaySound</string>
+			<key>label</key>
+			<string>Play shutter sound</string>
+		</dict>
+		<dict>
+			<key>cell</key>
+			<string>PSGroupCell</string>
+			<key>footerText</key>
+			<string>Disabling this toggle disables uploading screenshots to your Photo Stream.</string>
+			<key>isStaticText</key>
+			<true/>
+		</dict>
+		<dict>
+			<key>PostNotification</key>
+			<string>com.mologie.clipshot.settingschanged</string>
+			<key>cell</key>
+			<string>PSSwitchCell</string>
+			<key>default</key>
+			<true/>
+			<key>defaults</key>
+			<string>com.mologie.clipshot</string>
+			<key>key</key>
+			<string>UploadScreenshotsToPhotoStream</string>
+			<key>label</key>
+			<string>Photo Stream for screenshots</string>
+		</dict>
+		<dict>
+			<key>cell</key>
+			<string>PSGroupCell</string>
+			<key>footerText</key>
+			<string>The active application is notified after a screenshot was taken. Disabling this toggle disables the notification.</string>
+			<key>isStaticText</key>
+			<true/>
+		</dict>
+		<dict>
+			<key>PostNotification</key>
+			<string>com.mologie.clipshot.settingschanged</string>
+			<key>cell</key>
+			<string>PSSwitchCell</string>
+			<key>default</key>
+			<true/>
+			<key>defaults</key>
+			<string>com.mologie.clipshot</string>
+			<key>key</key>
+			<string>NotifyApplication</string>
+			<key>label</key>
+			<string>Notify application</string>
+		</dict>
+		<dict>
+			<key>cell</key>
+			<string>PSGroupCell</string>
+			<key>footerText</key>
+			<string>Source code, beta versions and the change log can be found on the project homepage. Coffee donations are greatly appreciated.
+
+ClipShot © 2014 Oliver Kuckertz</string>
+			<key>isStaticText</key>
+			<true/>
+		</dict>
+        <dict>
+                <key>action</key>
+                <string>visitWebsite:</string>
+                <key>cell</key>
+                <string>PSButtonCell</string>
+                <key>label</key>
+                <string>Project homepage</string>
+        </dict>
+	</array>
+</dict>
+</plist>

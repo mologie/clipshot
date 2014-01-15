@@ -2,9 +2,17 @@
 <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
 <plist version="1.0">
 <dict>
+	<key>group</key>
+	<string>ClipShot</string>
     <key>title</key>
-    <string>ClipShot to clipboard</string>
+    <string>Screenshot to clipboard</string>
 	<key>description</key>
 	<string>Saves a screenshot to the clipboard</string>
+	<key>small-icons</key>
+	<array>
+		<string>/Library/PreferenceLoader/Preferences/com.mologie.clipshot/com.mologie.clipshot.png</string>
+	</array>
+	<key>needs-powered-display</key>
+	<true/>
 </dict>
 </plist>

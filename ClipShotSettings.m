@@ -22,4 +22,8 @@
 	[[UIApplication sharedApplication] openURL:[NSURL URLWithString:@"https://cydia.mologie.com/package/com.mologie.clipshot/"]];
 }
 
+- (void)sendEmail:(id)sender {
+	[[UIApplication sharedApplication] openURL:[NSURL URLWithString:@"mailto:support+cydia@mologie.com?subject=ClipShot"]];
+}
+
 @end

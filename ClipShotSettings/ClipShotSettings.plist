@@ -160,6 +160,14 @@ ClipShot © 2014 Oliver Kuckertz</string>
                 <key>label</key>
                 <string>Project homepage</string>
         </dict>
+        <dict>
+                <key>action</key>
+                <string>sendEmail:</string>
+                <key>cell</key>
+                <string>PSButtonCell</string>
+                <key>label</key>
+                <string>Email support</string>
+        </dict>
 	</array>
 </dict>
 </plist>

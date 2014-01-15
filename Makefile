@@ -33,4 +33,4 @@ include framework/makefiles/tweak.mk
 
 after-stage::
 	$(ECHO_NOTHING)find "$(THEOS_STAGING_DIR)" -iname '*.plist' -exec plutil -convert binary1 "{}" \;$(ECHO_END)
-	$(ECHO_NOTHING)find "$(THEOS_STAGING_DIR)/Library/PreferenceLoader/Preferences" -iname '*.png' -exec /Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/usr/bin/pngcrush -q -iphone "{}" "{}.crushed" \; -exec mv "{}.crushed" "{}" \;$(ECHO_END)
+	$(ECHO_NOTHING)find "$(THEOS_STAGING_DIR)" -iname '*.png' -exec /Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/usr/bin/pngcrush -q -iphone "{}" "{}.crushed" \; -exec mv "{}.crushed" "{}" \;$(ECHO_END)

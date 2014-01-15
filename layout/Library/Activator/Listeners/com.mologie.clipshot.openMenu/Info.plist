@@ -2,9 +2,21 @@
 <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
 <plist version="1.0">
 <dict>
+	<key>group</key>
+	<string>ClipShot</string>
     <key>title</key>
-    <string>ClipShot menu</string>
+    <string>Screenshot menu</string>
 	<key>description</key>
-	<string>Opens the ClipShot menu</string>
+	<string>Takes a screenshot and opens the ClipShot menu</string>
+	<key>small-icons</key>
+	<array>
+		<string>/Library/PreferenceLoader/Preferences/com.mologie.clipshot/com.mologie.clipshot.png</string>
+	</array>
+	<key>needs-powered-display</key>
+	<true/>
+    <key>incompatible-events</key>
+	<array>
+		<string>libactivator.motion.shake</string>
+	</array>
 </dict>
 </plist>

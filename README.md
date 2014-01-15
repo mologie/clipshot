@@ -1,7 +1,7 @@
 ClipShot
 ========
 
-This tweak replaces SpringBoard's the screenshot feature on iOS 6 and later in order to provide the option to save screenshots to the clipboard.
+This tweak replaces SpringBoard's screenshot feature on iOS 6 and later in order to provide the option to save screenshots to the clipboard.
 
 ## Compilation
 ```sh

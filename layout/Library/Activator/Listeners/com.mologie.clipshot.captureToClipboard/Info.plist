@@ -14,5 +14,7 @@
 	</array>
 	<key>needs-powered-display</key>
 	<true/>
+	<key>selector</key>
+	<string>captureToClipboard</string>
 </dict>
 </plist>

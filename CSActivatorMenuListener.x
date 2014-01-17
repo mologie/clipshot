@@ -13,30 +13,23 @@
 @implementation CSActivatorMenuListener
 
 - (BOOL)dismiss {
-	return [[CSScreenShotter sharedInstance] hide];
+	return [[CSScreenShotter sharedInstance] dismissMenu];
 }
 
-- (void)activator:(LAActivator *)activator receiveEvent:(LAEvent *)even {
-	// Called when we recieve event
-	if (![self dismiss]) {
-		[[CSScreenShotter sharedInstance] showMenuIfNotVisible];
-	}
+- (void)activator:(LAActivator *)activator receiveEvent:(LAEvent *)event {
+	[[CSScreenShotter sharedInstance] showMenuIfNotVisible];
+	[event setHandled:YES];
 }
 
 - (void)activator:(LAActivator *)activator abortEvent:(LAEvent *)event {
-	// Called when event is escalated to a higher event
-	// (short-hold sleep button becomes long-hold shutdown menu, etc)
 	[self dismiss];
 }
 
 - (void)activator:(LAActivator *)activator otherListenerDidHandleEvent:(LAEvent *)event {
-	// Called when some other listener received an event; we should cleanup
 	[self dismiss];
 }
 
 - (void)activator:(LAActivator *)activator receiveDeactivateEvent:(LAEvent *)event {
-	// Called when the home button is pressed.
-	// Call event's setHandled:YES if the UI was previously visible.
 	if ([self dismiss]) {
 		[event setHandled:YES];
 	}

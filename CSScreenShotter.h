@@ -24,7 +24,7 @@ typedef enum _CSAction {
 - (void)saveScreenshotToClipboard:(UIImage *)screenshot;
 - (void)takeScreenshotAsSpecifiedByUser;
 - (void)showMenuIfNotVisible;
-- (BOOL)hide;
+- (BOOL)dismissMenu;
 
 @property (nonatomic, assign) UIImage *screenshot;
 @property (nonatomic, strong) UIWindow *window;

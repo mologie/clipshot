@@ -14,9 +14,5 @@
 	</array>
 	<key>needs-powered-display</key>
 	<true/>
-    <key>incompatible-events</key>
-	<array>
-		<string>libactivator.motion.shake</string>
-	</array>
 </dict>
 </plist>

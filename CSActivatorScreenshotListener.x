@@ -8,18 +8,9 @@
 #import "CSScreenShotter.h"
 
 @interface CSActivatorScreenshotListener : NSObject<LAListener>
-- (id)initWithAction:(SEL)action;
-@property (nonatomic) SEL action;
 @end
 
 @implementation CSActivatorScreenshotListener
-
-- (id)initWithAction:(SEL)action {
-	if (self = [super init]) {
-		self.action = action;
-	}
-	return self;
-}
 
 - (void)captureToCameraRoll {
 	CSScreenShotter *screenShotter = [CSScreenShotter sharedInstance];
@@ -31,25 +22,19 @@
 	[screenShotter saveScreenshotToClipboard:[screenShotter captureScreenshot]];
 }
 
-- (void)activator:(LAActivator *)activator receiveEvent:(LAEvent *)even {
-	[self performSelector:self.action];
-}
-
-- (void)activator:(LAActivator *)activator abortEvent:(LAEvent *)event {
-}
-
-- (void)activator:(LAActivator *)activator otherListenerDidHandleEvent:(LAEvent *)event {
-}
-
-- (void)activator:(LAActivator *)activator receiveDeactivateEvent:(LAEvent *)event {
+- (void)activator:(LAActivator *)activator receiveEvent:(LAEvent *)event forListenerName:(NSString *)listenerName {
+	NSString *selector = [activator infoDictionaryValueOfKey:@"selector" forListenerWithName:listenerName];
+	objc_msgSend(self, NSSelectorFromString(selector), activator, event, listenerName);
+	[event setHandled:YES];
 }
 
 + (void)load {
 	Class activatorClass = %c(LAActivator);
 	if (activatorClass) {
 		LAActivator *activator = [activatorClass sharedInstance];
-		[activator registerListener:[[self alloc] initWithAction:@selector(captureToCameraRoll)] forName:@"com.mologie.clipshot.captureToCameraRoll"];
-		[activator registerListener:[[self alloc] initWithAction:@selector(captureToClipboard)] forName:@"com.mologie.clipshot.captureToClipboard"];
+		CSActivatorScreenshotListener *screenshotListener = [[CSActivatorScreenshotListener alloc] init];
+		[activator registerListener:screenshotListener forName:@"com.mologie.clipshot.captureToCameraRoll"];
+		[activator registerListener:screenshotListener forName:@"com.mologie.clipshot.captureToClipboard"];
 	}
 }
 

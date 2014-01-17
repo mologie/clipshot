@@ -26,7 +26,7 @@ static void CSSpringBoardHasBlankedScreenNotification(
 	const void *object,
 	CFDictionaryRef userInfo)
 {
-	[[CSScreenShotter sharedInstanceIfExists] hide];
+	[[CSScreenShotter sharedInstanceIfExists] dismissMenu];
 }
 
 static void CSRegisterNotifications()

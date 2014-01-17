@@ -160,7 +160,7 @@ static CSScreenShotter *instance;
 	}
 }
 
-- (BOOL)hide {
+- (BOOL)dismissMenu {
 	if (self.actionSheet) {
 		[self.actionSheet dismissWithClickedButtonIndex:self.actionSheet.cancelButtonIndex animated:NO];
 		return YES;

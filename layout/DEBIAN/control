@@ -1,7 +1,7 @@
 Package: com.mologie.clipshot
 Name: ClipShot
 Description: Save screenshots to the clipboard
-Version: 0.4.1
+Version: 0.4.2
 Section: System
 Maintainer: Oliver Kuckertz <oliver.kuckertz@mologie.de>
 Author: Oliver Kuckertz <oliver.kuckertz@mologie.de>

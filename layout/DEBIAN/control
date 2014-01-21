@@ -3,8 +3,8 @@ Name: ClipShot
 Description: Save screenshots to the clipboard
 Version: 0.4.2
 Section: System
-Maintainer: Oliver Kuckertz <oliver.kuckertz@mologie.de>
-Author: Oliver Kuckertz <oliver.kuckertz@mologie.de>
+Maintainer: Oliver Kuckertz <support+cydia@mologie.com>
+Author: Oliver Kuckertz <support+cydia@mologie.com>
 Depends: firmware (>= 6), mobilesubstrate
 Replaces: net.evancoleman.screenshotdam
 Breaks: net.evancoleman.screenshotdam

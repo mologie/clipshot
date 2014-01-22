@@ -15,6 +15,7 @@ ClipShotSettings_INSTALL_PATH = /Library/PreferenceBundles
 ClipShotSettings_FRAMEWORKS = UIKit
 ClipShotSettings_PRIVATE_FRAMEWORKS = Preferences
 ClipShotSettings_RESOURCE_DIRS = ClipShotSettings
+ClipShotSettings_CFLAGS = -Iheaders
 
 # Use make DEBUG=1 for building binaries which output logs
 DEBUG ?= 0

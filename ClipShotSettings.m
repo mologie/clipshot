@@ -5,6 +5,7 @@
  */
 
 #import <Preferences/Preferences.h>
+#import "CoreFoundationVersions.h"
 
 @interface ClipShotSettingsListController : PSListController
 @end
@@ -12,8 +13,17 @@
 @implementation ClipShotSettingsListController
 
 - (id)specifiers {
-	if(_specifiers == nil) {
-		_specifiers = [[self loadSpecifiersFromPlistName:@"ClipShotSettings" target:self] retain];
+	if (_specifiers == nil) {
+		NSArray *specifiers = [self loadSpecifiersFromPlistName:@"ClipShotSettings" target:self];
+		if (kCFCoreFoundationVersionNumber < kCFCoreFoundationVersionNumber_iPhoneOS_7_0) {
+			NSMutableIndexSet *indexes = [[NSMutableIndexSet alloc] init];
+			[indexes addIndex:9];
+			[indexes addIndex:10];
+			NSMutableArray *newSpecifiers = [specifiers mutableCopy];
+			[newSpecifiers removeObjectsAtIndexes:indexes];
+			specifiers = newSpecifiers;
+		}
+		_specifiers = [specifiers retain];
 	}
 	return _specifiers;
 }

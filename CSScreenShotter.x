@@ -10,6 +10,7 @@
 #import <SpringBoard/SpringBoard.h>
 #import <UIKit/UIKit.h>
 #import "UIRemoteApplication+Private.h"
+#import "CoreFoundationVersions.h"
 
 #define kCSSettingsPlist @"/var/mobile/Library/Preferences/com.mologie.clipshot.plist"
 
@@ -68,6 +69,8 @@ static CSScreenShotter *instance;
 
 - (void)sendScreenshotNotificationToFrontMostApplication {
 	if (!self.settingsNotifyApplication)
+		return;
+	if (kCFCoreFoundationVersionNumber < kCFCoreFoundationVersionNumber_iPhoneOS_7_0)
 		return;
 	SBApplication *frontMostApplication = [(SpringBoard *)UIApp _accessibilityFrontMostApplication];
 	[frontMostApplication.remoteApplication didTakeScreenshot];

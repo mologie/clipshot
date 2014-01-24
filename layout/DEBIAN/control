@@ -5,7 +5,7 @@ Version: 0.4.3
 Section: System
 Maintainer: Oliver Kuckertz <support+cydia@mologie.com>
 Author: Oliver Kuckertz <support+cydia@mologie.com>
-Depends: firmware (>= 6), mobilesubstrate
+Depends: firmware (>= 6), mobilesubstrate, preferenceloader
 Replaces: net.evancoleman.screenshotdam
 Breaks: net.evancoleman.screenshotdam
 Architecture: iphoneos-arm
